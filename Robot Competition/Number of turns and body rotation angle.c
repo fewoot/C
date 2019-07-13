@@ -23,7 +23,8 @@ void angleToTurn(){
     scanf("%f",&d);
     printf("请输入轮子半径（/m）:");
     scanf("%f",&r);
-    printf("圈数是%f\n",((d*a)/(4*PI*r)));
+    printf("圈数是:%f\n",((d*a)/(4*PI*r)));
+    printf("在设置里面的position值是:%f",((d*a)/(4*PI*r))*900);
     return;
 }
 
@@ -35,23 +36,39 @@ void turnToAngle(){
     scanf("%f",&d);
     printf("请输入轮子半径（/m）:");
     scanf("%f",&r);
-    printf("角度是%f\n",(((4*PI*r*n)/d)*180)/PI);
+    printf("角度是:%f\n",(((4*PI*r*n)/d)*180)/PI);
+    return;
+}
+
+void positionToAngle(){
+    float n,d,r;
+    printf("请输入位置数值：");
+    scanf("%f",&n);
+    n = n/900;
+    printf("请输入车身旋转直径（/m）:");
+    scanf("%f",&d);
+    printf("请输入轮子半径（/m）:");
+    scanf("%f",&r);
+    printf("角度是:%f\n",(((4*PI*r*n)/d)*180)/PI);
     return;
 }
 
 int main()
 {
     int shuru;
-    printf("1.角度转圈数\n2.圈数转角度\n请选择：");
+    printf("1.角度转圈数\n2.圈数转角度\n3.位置转角度\n请选择：");
     scanf("%d",&shuru);
     switch (shuru)
     {
     case 1:
         angleToTurn();
         break;
+    case 2:
+        turnToAngle();
+        break;
     
     default:
-        turnToAngle();
+        positionToAngle();
         break;
     }
     //gets();
